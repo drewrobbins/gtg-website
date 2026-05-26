@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Order — Emerald Coast Gourmet To Go</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="images/gourmet-to-go-logo1.png" alt="Gourmet To Go" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li>
+        <a href="order.html" class="nav-cart-btn" style="position:relative;">
+          🛒 <span class="cart-btn-text">Cart</span>
+          <span class="cart-badge">0</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="background:var(--emerald);padding:2.5rem 0;text-align:center;">
+  <div class="container">
+    <h1 style="color:#fff;margin-bottom:.5rem;">Your Order</h1>
+    <p style="color:rgba(255,255,255,.75);margin:0;">Review your cart and place your order below.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- EMPTY CART STATE -->
+    <div id="emptyCart" class="empty-cart" style="display:none;">
+      <div class="ec-icon">🛒</div>
+      <h2>Your cart is empty</h2>
+      <p>Head over to the menu and add some items — Chef Gary has everything ready to go.</p>
+      <a href="menu.html" class="btn btn-gold">Browse the Menu</a>
+    </div>
+
+    <!-- CART + CHECKOUT -->
+    <div id="cartContent" style="display:none;">
+      <div class="order-layout">
+
+        <!-- LEFT: Cart Items + Customer Form -->
+        <div>
+          <!-- Cart Table -->
+          <h2 style="margin-bottom:1.5rem;">Cart</h2>
+          <div style="overflow-x:auto;margin-bottom:2.5rem;">
+            <table class="order-cart-table" id="cartTable">
+              <thead>
+                <tr>
+                  <th style="min-width:180px;">Item</th>
+                  <th>Tier</th>
+                  <th>Qty</th>
+                  <th style="text-align:right;">Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cartBody">
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Customer + Order Details Form -->
+          <div class="checkout-form">
+            <h2 style="margin-bottom:1.5rem;">Order Details</h2>
+
+            <!-- ── Fulfillment Method ── -->
+            <p class="form-section-title">How would you like to receive your order?</p>
+            <div class="radio-cards">
+              <div class="radio-card">
+                <input type="radio" name="method" id="methodPickup" value="pickup" checked onchange="onMethodChange()" />
+                <label for="methodPickup">
+                  <strong>🏪 Pickup</strong>
+                  <span>Mon–Fri 10am–4pm<br/>3906 US-98 Suite 40, Santa Rosa Beach</span>
+                </label>
+              </div>
+              <div class="radio-card">
+                <input type="radio" name="method" id="methodDelivery" value="delivery" onchange="onMethodChange()" />
+                <label for="methodDelivery">
+                  <strong>🚚 Delivery</strong>
+                  <span>Mon–Fri 4–6pm · $100 min<br/>$20 fee · Free over $200</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Delivery Address (hidden until delivery selected) -->
+            <div id="deliveryFields" style="display:none;">
+              <p class="form-section-title">Delivery Address</p>
+              <div class="form-group">
+                <label for="address">Street Address <span class="req">*</span></label>
+                <input type="text" id="address" placeholder="1234 30A Blvd" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City <span class="req">*</span></label>
+                  <input type="text" id="city" placeholder="Santa Rosa Beach" />
+                </div>
+                <div class="form-group">
+                  <label for="zip">ZIP Code <span class="req">*</span></label>
+                  <input type="text" id="zip" placeholder="32459" maxlength="10" />
+                </div>
+              </div>
+              <p style="font-size:.82rem;color:var(--text-light);margin-top:-.5rem;margin-bottom:1rem;">Delivery area: Sandestin to Inlet Beach. Outside this area? Call us at (850) 585-5979.</p>
+            </div>
+
+            <!-- Requested Date -->
+            <p class="form-section-title">Requested Date</p>
+            <div class="form-group">
+              <label for="orderDate">Pickup / Delivery Date <span class="req">*</span></label>
+              <input type="date" id="orderDate" />
+              <p style="font-size:.82rem;color:var(--text-light);margin-top:.4rem;">All orders require 48-hour lead time. Earliest available date is pre-selected.</p>
+            </div>
+
+            <!-- Contact Info -->
+            <p class="form-section-title">Your Contact Information</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" placeholder="Jane" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" placeholder="Smith" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" placeholder="jane@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" placeholder="(850) 555-0100" />
+              </div>
+            </div>
+
+            <!-- Special Instructions -->
+            <p class="form-section-title">Additional Notes</p>
+            <div class="form-group">
+              <label for="notes">Special Instructions or Dietary Notes</label>
+              <textarea id="notes" rows="3" placeholder="Allergy notes, special requests, gate codes for delivery..."></textarea>
+            </div>
+
+            <!-- How did you hear about us -->
+            <div class="form-group">
+              <label for="referral">How did you hear about us?</label>
+              <select id="referral">
+                <option value="">— Select —</option>
+                <option>Google Search</option>
+                <option>Social Media</option>
+                <option>Friend / Word of Mouth</option>
+                <option>VRBO / Airbnb Host</option>
+                <option>3 Pillar Health / Dr. Drew</option>
+                <option>Drove by the store</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+          </div><!-- /.checkout-form -->
+        </div><!-- /left col -->
+
+        <!-- RIGHT: Order Summary + Submit -->
+        <div>
+          <div class="order-totals" style="position:sticky;top:90px;">
+            <h3>Order Summary</h3>
+
+            <div id="minOrderWarning" class="min-order-warning" style="display:none;">
+              ⚠️ Delivery requires a $100 minimum order. Your current subtotal is <strong id="currentSubtotalWarn">$0</strong>. Add more items or switch to pickup.
+            </div>
+
+            <div class="totals-line">
+              <span>Subtotal</span>
+              <span id="summarySubtotal">$0.00</span>
+            </div>
+            <div class="totals-line" id="deliveryFeeRow" style="display:none;">
+              <span>Delivery fee</span>
+              <span id="summaryDeliveryFee">$20.00</span>
+            </div>
+            <div class="totals-line free-delivery" id="freeDeliveryRow" style="display:none;">
+              <span>Delivery</span>
+              <span>FREE 🎉</span>
+            </div>
+            <div class="totals-line total-final">
+              <span>Total</span>
+              <span id="summaryTotal">$0.00</span>
+            </div>
+
+            <div style="margin:1.5rem 0;padding:1rem;background:var(--cream);border-radius:var(--radius);font-size:.85rem;color:var(--text-mid);">
+              <strong style="color:var(--emerald);">Payment at Pickup / Delivery</strong><br/>
+              We accept cash, card, and Venmo. No payment required online — we'll confirm your order and collect at delivery or pickup.
+            </div>
+
+            <button id="submitBtn" class="btn btn-gold btn-block" onclick="submitOrder()" style="font-size:1rem;padding:1rem;">
+              Place Order →
+            </button>
+            <p style="font-size:.78rem;color:var(--text-light);text-align:center;margin-top:.75rem;">You'll receive a confirmation text/email within 1 hour during business hours.</p>
+
+            <div style="margin-top:1.5rem;text-align:center;font-size:.85rem;color:var(--text-light);">
+              Questions? Call <a href="tel:8505855979">(850) 585-5979</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.order-layout -->
+    </div><!-- /#cartContent -->
+
+    <!-- SUCCESS STATE -->
+    <div id="orderSuccess" style="display:none;" class="order-success">
+      <div class="success-icon">✅</div>
+      <h2>Order Received!</h2>
+      <div class="order-ref" id="orderRef">Order #GTG-0000</div>
+      <p>Thank you! We've received your order and will confirm by text or email within 1 hour during business hours. Your items will be freshly prepared — we look forward to seeing you.</p>
+      <p style="font-size:.875rem;color:var(--text-light);">Questions? Call <a href="tel:8505855979">(850) 585-5979</a> or email <a href="mailto:ecc.gtg@gmail.com">ecc.gtg@gmail.com</a></p>
+      <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="menu.html" class="btn btn-gold">Order More</a>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Emerald Coast Gourmet To Go</h4>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);">3906 US-98 Suite 40 · Santa Rosa Beach, FL 32459<br/>(850) 585-5979 · ecc.gtg@gmail.com</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Share Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Retail: Tue–Sat 10am–5pm</li>
+          <li>Delivery: Mon–Fri 4–6pm</li>
+          <li>Min. order: $100</li>
+          <li>Free delivery over $200</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Emerald Coast Gourmet To Go · A 3 Pillar Health Partner</p></div>
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+// ────────────────────────────────────────────────────────
+//  ORDER PAGE CONTROLLER
+// ────────────────────────────────────────────────────────
+
+// ── FORMSPREE ENDPOINT ──
+// SETUP REQUIRED: Replace this with your actual Formspree endpoint.
+// 1. Go to https://formspree.io and create a free account
+// 2. Create a new form → set email to ecc.gtg@gmail.com
+// 3. Copy the endpoint URL (e.g. https://formspree.io/f/xyzabcde) and paste below
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvzlkdy';
+
+// ────────────────────────────────────────────────────────
+
+function init() {
+  const cart = getCart();
+  if (cart.length === 0) {
+    document.getElementById('emptyCart').style.display = 'block';
+  } else {
+    document.getElementById('cartContent').style.display = 'block';
+    renderCart();
+    updateSummary();
+    setMinDate();
+  }
+}
+
+function renderCart() {
+  const cart = getCart();
+  const tbody = document.getElementById('cartBody');
+  tbody.innerHTML = '';
+  cart.forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="item-name">${item.name}</div>
+      </td>
+      <td><span class="tier-badge tier-${tierClass(item.tier)}">${item.tier}</span></td>
+      <td>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:700;">$${(item.price * item.qty).toFixed(2)}</td>
+      <td><button class="remove-btn" onclick="removeItem('${item.id}')">✕</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function tierClass(tier) {
+  const map = {
+    'Pure Carnivore': 'carnivore',
+    'Carnivore Light': 'carnivore-light',
+    'Ketovore': 'ketovore',
+    'Low Carb': 'lowcarb',
+    'GTG Classic': 'classic'
+  };
+  return map[tier] || 'classic';
+}
+
+function changeQty(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  const newQty = item.qty + delta;
+  if (newQty <= 0) { removeItem(id); return; }
+  setQty(id, newQty);
+  renderCart();
+  updateSummary();
+}
+
+function removeItem(id) {
+  removeFromCart(id);
+  const cart = getCart();
+  if (cart.length === 0) {
+    document.getElementById('cartContent').style.display = 'none';
+    document.getElementById('emptyCart').style.display = 'block';
+    return;
+  }
+  renderCart();
+  updateSummary();
+}
+
+function getSelectedMethod() {
+  return document.querySelector('input[name="method"]:checked')?.value || 'pickup';
+}
+
+function onMethodChange() {
+  const method = getSelectedMethod();
+  document.getElementById('deliveryFields').style.display = method === 'delivery' ? 'block' : 'none';
+  updateSummary();
+}
+
+function updateSummary() {
+  const method = getSelectedMethod();
+  const sub = getSubtotal();
+  const fee = getDeliveryFee(method);
+  const total = getTotal(method);
+
+  document.getElementById('summarySubtotal').textContent = '$' + sub.toFixed(2);
+  document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
+
+  // Delivery fee rows
+  const feeRow = document.getElementById('deliveryFeeRow');
+  const freeRow = document.getElementById('freeDeliveryRow');
+  if (method === 'delivery') {
+    if (fee === 0) {
+      feeRow.style.display = 'none';
+      freeRow.style.display = 'flex';
+    } else {
+      document.getElementById('summaryDeliveryFee').textContent = '$' + fee.toFixed(2);
+      feeRow.style.display = 'flex';
+      freeRow.style.display = 'none';
+    }
+  } else {
+    feeRow.style.display = 'none';
+    freeRow.style.display = 'none';
+  }
+
+  // Minimum order warning for delivery
+  const warn = document.getElementById('minOrderWarning');
+  if (method === 'delivery' && sub < MIN_ORDER) {
+    document.getElementById('currentSubtotalWarn').textContent = '$' + sub.toFixed(2);
+    warn.style.display = 'block';
+  } else {
+    warn.style.display = 'none';
+  }
+}
+
+function setMinDate() {
+  const input = document.getElementById('orderDate');
+  const minDate = getMinOrderDate();
+  input.min = minDate;
+  input.value = minDate;
+}
+
+// ── Form Validation ──
+function validate() {
+  let ok = true;
+  const required = ['firstName', 'lastName', 'email', 'phone', 'orderDate'];
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+    else el.classList.remove('error');
+  });
+
+  if (getSelectedMethod() === 'delivery') {
+    ['address', 'city', 'zip'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+      else el.classList.remove('error');
+    });
+    if (getSubtotal() < MIN_ORDER) { ok = false; }
+  }
+
+  // Email format
+  const emailEl = document.getElementById('email');
+  if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+    emailEl.classList.add('error'); ok = false;
+  }
+
+  return ok;
+}
+
+// ── Submit Order ──
+async function submitOrder() {
+  if (!validate()) {
+    alert('Please fill in all required fields before placing your order.');
+    return;
+  }
+
+  const method = getSelectedMethod();
+  const cart = getCart();
+  const orderNum = 'GTG-' + Date.now().toString().slice(-6);
+  const orderSummary = buildOrderSummary(method);
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const date = document.getElementById('orderDate').value;
+  const notes = document.getElementById('notes').value.trim();
+  const referral = document.getElementById('referral').value;
+
+  let deliveryAddress = '';
+  if (method === 'delivery') {
+    const addr = document.getElementById('address').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const zip = document.getElementById('zip').value.trim();
+    deliveryAddress = `${addr}, ${city}, FL ${zip}`;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  // Build payload for Formspree
+  const payload = {
+    _subject: `[GTG Order] ${orderNum} — ${firstName} ${lastName} — ${method.toUpperCase()} — ${date}`,
+    order_number: orderNum,
+    customer_name: `${firstName} ${lastName}`,
+    email: email,
+    phone: phone,
+    fulfillment_method: method === 'delivery' ? 'Delivery' : 'Pickup',
+    requested_date: date,
+    delivery_address: deliveryAddress || 'N/A (Pickup)',
+    order_summary: orderSummary,
+    special_instructions: notes || 'None',
+    how_did_you_hear: referral || 'Not specified',
+    _replyto: email,
+  };
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      clearCart();
+      document.getElementById('cartContent').style.display = 'none';
+      document.getElementById('orderSuccess').style.display = 'block';
+      document.getElementById('orderRef').textContent = 'Order ' + orderNum;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const data = await res.json();
+      throw new Error(data.error || 'Submission failed');
+    }
+  } catch (err) {
+    // Fallback: if Formspree isn't configured yet, show a helpful error with the order details
+    if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID_HERE')) {
+      // Dev mode: show order summary
+      const msg = `ORDER PLACED (Dev Mode — Formspree not configured)\n\nOrder: ${orderNum}\nCustomer: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nMethod: ${method}\nDate: ${date}\n${deliveryAddress ? 'Address: ' + deliveryAddress + '\n' : ''}Notes: ${notes || 'None'}\n\n${orderSummary}`;
+      alert(msg);
+      clearCart();
+      document.getElementById('cartContent').style.display = 'none';
+      document.getElementById('orderSuccess').style.display = 'block';
+      document.getElementById('orderRef').textContent = 'Order ' + orderNum;
+    } else {
+      alert('There was a problem submitting your order. Please call us at (850) 585-5979 or try again.');
+      btn.textContent = 'Place Order →';
+      btn.disabled = false;
+    }
+  }
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

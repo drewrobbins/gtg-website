@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Emerald Coast Gourmet To Go</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="images/gourmet-to-go-logo1.png" alt="Gourmet To Go" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li>
+        <a href="order.html" class="nav-cart-btn" style="position:relative;">
+          🛒 <span class="cart-btn-text">Cart</span>
+          <span class="cart-badge">0</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MENU HERO -->
+<div style="background:var(--emerald);padding:3.5rem 0;text-align:center;">
+  <div class="container">
+    <span class="section-label">Fresh Made to Order · 48hr Lead Time</span>
+    <h1 style="color:#fff;margin-bottom:.75rem;">The Menu</h1>
+    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 1.5rem;">Everything prepared fresh by Chef Gary Serafin. Add items to your cart and place your order online — no phone call needed.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;">
+      <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+      <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+      <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+      <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+      <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+    </div>
+  </div>
+</div>
+
+<!-- JUMP LINKS -->
+<div style="background:#fff;border-bottom:1px solid var(--border);padding:.75rem 0;position:sticky;top:72px;z-index:90;">
+  <div class="container" style="display:flex;gap:1.5rem;overflow-x:auto;flex-wrap:nowrap;">
+    <a href="#stratas" style="color:var(--emerald);font-size:.85rem;font-weight:700;white-space:nowrap;">3P Stratas</a>
+    <a href="#entrees" style="color:var(--emerald);font-size:.85rem;font-weight:700;white-space:nowrap;">Entrées</a>
+    <a href="#soups" style="color:var(--emerald);font-size:.85rem;font-weight:700;white-space:nowrap;">Soups & Gumbos</a>
+    <a href="#sides" style="color:var(--emerald);font-size:.85rem;font-weight:700;white-space:nowrap;">Sides</a>
+    <a href="#desserts" style="color:var(--emerald);font-size:.85rem;font-weight:700;white-space:nowrap;">Desserts</a>
+  </div>
+</div>
+
+<!-- 3P STRATAS -->
+<section class="section" id="stratas">
+  <div class="container">
+    <div class="menu-category">
+      <h2>3P Stratas <span style="font-size:1rem;color:var(--gold);font-family:var(--font-sans);font-weight:600;">— Flagship Carnivore Line</span></h2>
+      <p style="margin-bottom:1.5rem;">Signature zero-carb protein stratas developed with Dr. Drew's 3 Pillar Health protocol. No grains, no fillers, no compromises. Feeds 2–3.</p>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-item-id="beef-strada">
+          <img class="menu-card-img" src="images/beef-strada-300x300.png" alt="Beef Strada" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <h4>Beef Strada</h4>
+            <p>Premium ground beef, eggs, aged cheddar. Zero carb. Feeds 2–3.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$48</span>
+              <button class="add-to-cart-btn" onclick="addToCart('beef-strada','Beef Strada',48,'Pure Carnivore','images/beef-strada-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="lamb-strada">
+          <img class="menu-card-img" src="images/lamb-strada-300x300.png" alt="Lamb Strada" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <h4>Lamb Strada</h4>
+            <p>Pasture-raised lamb, rosemary, eggs, manchego. Rich, deeply satisfying. Feeds 2–3.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$52</span>
+              <button class="add-to-cart-btn" onclick="addToCart('lamb-strada','Lamb Strada',52,'Pure Carnivore','images/lamb-strada-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="sw-chicken-strada">
+          <img class="menu-card-img" src="images/sw-chicken-strada-300x300.png" alt="SW Chicken Strada" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+            <h4>Southwest Chicken Strada</h4>
+            <p>Free-range chicken, roasted peppers, pepper jack. 3g net carbs. Feeds 2–3.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$45</span>
+              <button class="add-to-cart-btn" onclick="addToCart('sw-chicken-strada','SW Chicken Strada',45,'Carnivore Light','images/sw-chicken-strada-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREES -->
+<section class="section section--alt" id="entrees">
+  <div class="container">
+    <div class="menu-category">
+      <h2>Entrées <span style="font-size:.9rem;color:var(--text-light);font-family:var(--font-sans);">All serve 2</span></h2>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-item-id="shrimp-etouffee">
+          <img class="menu-card-img" src="images/shrimp-etouffee-300x300.png" alt="Shrimp Étouffée" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>Shrimp Étouffée</h4>
+            <p>Gulf shrimp, Cajun roux, Trinity vegetables. Request cauliflower rice.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$34</span>
+              <button class="add-to-cart-btn" onclick="addToCart('shrimp-etouffee','Shrimp Étouffée',34,'Low Carb','images/shrimp-etouffee-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="curry-chicken">
+          <img class="menu-card-img" src="images/curry-chicken-300x300.png" alt="Curry Chicken" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <h4>Curry Chicken</h4>
+            <p>Free-range chicken in coconut curry with aromatic spices. No starch.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$32</span>
+              <button class="add-to-cart-btn" onclick="addToCart('curry-chicken','Curry Chicken',32,'Ketovore','images/curry-chicken-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="creole-shrimp">
+          <img class="menu-card-img" src="images/creole-shrimp-300x300.png" alt="Creole Shrimp" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>Creole Shrimp</h4>
+            <p>Bold Creole spice blend, Gulf shrimp, herb tomato base.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$32</span>
+              <button class="add-to-cart-btn" onclick="addToCart('creole-shrimp','Creole Shrimp',32,'Low Carb','images/creole-shrimp-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="meat-lasagna">
+          <img class="menu-card-img" src="images/meat-lasagna-300x300.png" alt="Meat Lasagna" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Meat Lasagna</h4>
+            <p>Chef Gary's signature — house-made meat sauce, ricotta, fresh pasta layers.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$34</span>
+              <button class="add-to-cart-btn" onclick="addToCart('meat-lasagna','Meat Lasagna',34,'GTG Classic','images/meat-lasagna-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="chicken-pot-pie">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Chicken Pot Pie</h4>
+            <p>Slow-roasted chicken, root vegetables, flaky butter crust.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$30</span>
+              <button class="add-to-cart-btn" onclick="addToCart('chicken-pot-pie','Chicken Pot Pie',30,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="shepherds-pie">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Shepherd's Pie</h4>
+            <p>Braised ground beef and vegetables under creamy mashed potato crust.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$30</span>
+              <button class="add-to-cart-btn" onclick="addToCart('shepherds-pie',"Shepherd\'s Pie",30,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="meatloaf">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+            <h4>Market Street Meatloaf</h4>
+            <p>Classic all-beef meatloaf, minimal binders, rosemary whipped potatoes.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$30</span>
+              <button class="add-to-cart-btn" onclick="addToCart('meatloaf','Market Street Meatloaf',30,'Carnivore Light','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="gf-pasta">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>GF Pasta Primavera</h4>
+            <p>Gluten-free pasta, roasted seasonal vegetables, light herb sauce.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$19</span>
+              <button class="add-to-cart-btn" onclick="addToCart('gf-pasta','GF Pasta Primavera',19,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOUPS & GUMBOS -->
+<section class="section" id="soups">
+  <div class="container">
+    <div class="menu-category">
+      <h2>Soups & Gumbos <span style="font-size:.9rem;color:var(--text-light);font-family:var(--font-sans);">Sold by the Quart</span></h2>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-item-id="chicken-gumbo">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>Chicken & Sausage Gumbo</h4>
+            <p>Deep dark roux, andouille sausage, Gulf seasoning. A Florida Panhandle classic.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$18</span>
+              <button class="add-to-cart-btn" onclick="addToCart('chicken-gumbo','Chicken & Sausage Gumbo',18,'Low Carb','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="seafood-gumbo">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>Seafood Gumbo</h4>
+            <p>Gulf shrimp, crab, oysters in rich roux. Locally sourced when available.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$18</span>
+              <button class="add-to-cart-btn" onclick="addToCart('seafood-gumbo','Seafood Gumbo',18,'Low Carb','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="lobster-bisque">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <h4>Lobster Bisque</h4>
+            <p>Rich cream base, lobster meat, hint of sherry. Pure luxury.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$18</span>
+              <button class="add-to-cart-btn" onclick="addToCart('lobster-bisque','Lobster Bisque',18,'Ketovore','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="tomato-basil">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Tomato Basil Soup</h4>
+            <p>San Marzano tomatoes, fresh basil, light cream. Pairs with anything.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$16</span>
+              <button class="add-to-cart-btn" onclick="addToCart('tomato-basil','Tomato Basil Soup',16,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="white-chili">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>White Chili with Turkey</h4>
+            <p>Tender turkey, white beans, roasted chilis. Hearty and satisfying.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$15</span>
+              <button class="add-to-cart-btn" onclick="addToCart('white-chili','White Chili with Turkey',15,'Low Carb','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="creole-shrimp-stew">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <h4>Creole Shrimp & Corn Stew</h4>
+            <p>Sweet corn, Gulf shrimp, bold Creole seasoning.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$16</span>
+              <button class="add-to-cart-btn" onclick="addToCart('creole-shrimp-stew','Creole Shrimp & Corn Stew',16,'Low Carb','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDES -->
+<section class="section section--alt" id="sides">
+  <div class="container">
+    <div class="menu-category">
+      <h2>Sides</h2>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-item-id="cauliflower-mash">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+            <h4>Cauliflower Mash</h4>
+            <p>Butter, cream, roasted garlic. Perfect low-carb swap.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$9</span>
+              <button class="add-to-cart-btn" onclick="addToCart('cauliflower-mash','Cauliflower Mash',9,'Carnivore Light','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="black-bean-corn">
+          <img class="menu-card-img" src="images/black-bean-and-corn-300x300.png" alt="Black Bean & Corn" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Black Bean & Corn Salad</h4>
+            <p>Fresh herbs, lime vinaigrette. Bright and bold.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$9</span>
+              <button class="add-to-cart-btn" onclick="addToCart('black-bean-corn','Black Bean & Corn Salad',9,'GTG Classic','images/black-bean-and-corn-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="bone-broth">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <h4>Bone Broth</h4>
+            <p>24-hour simmered beef bone broth. 20g protein per serving.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$10</span>
+              <button class="add-to-cart-btn" onclick="addToCart('bone-broth','Bone Broth',10,'Pure Carnivore','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="creamed-corn">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Creamed Corn</h4>
+            <p>Sweet Florida corn, cream, butter. A Southern classic.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$8</span>
+              <button class="add-to-cart-btn" onclick="addToCart('creamed-corn','Creamed Corn',8,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="mac-cheese">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Mac & Cheese</h4>
+            <p>Over 1¼ lb with Fontina and Sharp Cheddar. Comfort food elevated.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$12</span>
+              <button class="add-to-cart-btn" onclick="addToCart('mac-cheese','Mac & Cheese',12,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="ratatouille">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <h4>Ratatouille</h4>
+            <p>Garden vegetables, herbs de Provence, slow-roasted perfection.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$9</span>
+              <button class="add-to-cart-btn" onclick="addToCart('ratatouille','Ratatouille',9,'Ketovore','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESSERTS -->
+<section class="section" id="desserts">
+  <div class="container">
+    <div class="menu-category">
+      <h2>Desserts <span style="font-size:.9rem;color:var(--text-light);font-family:var(--font-sans);">All serve 2</span></h2>
+      <div class="menu-grid">
+
+        <div class="menu-card" data-item-id="bread-pudding">
+          <img class="menu-card-img" src="images/bread-pudding-300x300.png" alt="Bread Pudding" onerror="this.style.display='none'" />
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>New Orleans Bread Pudding</h4>
+            <p>Brioche, bourbon vanilla sauce, toasted pecans. Legendary.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$13</span>
+              <button class="add-to-cart-btn" onclick="addToCart('bread-pudding','New Orleans Bread Pudding',13,'GTG Classic','images/bread-pudding-300x300.png')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="creme-brulee">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Crème Brûlée</h4>
+            <p>Classic French custard with caramelized sugar crust.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$13</span>
+              <button class="add-to-cart-btn" onclick="addToCart('creme-brulee','Crème Brûlée',13,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="choc-torte">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <h4>Flourless Chocolate Torte</h4>
+            <p>Dense dark chocolate, no flour, no refined sugar. 4g net carbs.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$13</span>
+              <button class="add-to-cart-btn" onclick="addToCart('choc-torte','Flourless Chocolate Torte',13,'Ketovore','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-item-id="peach-crumble">
+          <div class="menu-card-body">
+            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <h4>Peach Crumble</h4>
+            <p>Local Florida peaches, oat crumble topping, warm spices.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$14</span>
+              <button class="add-to-cart-btn" onclick="addToCart('peach-crumble','Peach Crumble',14,'GTG Classic','')">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER CTA -->
+<section class="section section--dark" style="text-align:center;">
+  <div class="container">
+    <h2>Ready to Order?</h2>
+    <p style="max-width:500px;margin:0 auto 2rem;">All items require 48-hour lead time. Add items to your cart and checkout online — or call if you prefer.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="order.html" class="btn btn-gold">View Cart & Checkout</a>
+      <a href="subscribe.html" class="btn btn-outline">Weekly Subscription</a>
+      <a href="tel:8505855979" class="btn btn-white">Call (850) 585-5979</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Emerald Coast Gourmet To Go</h4>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);">3906 US-98 Suite 40 · Santa Rosa Beach, FL 32459<br/>(850) 585-5979 · ecc.gtg@gmail.com</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Share Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Retail: Tue–Sat 10am–5pm</li>
+          <li>Delivery: Mon–Fri 4–6pm</li>
+          <li>Min. order: $100</li>
+          <li>Free delivery over $200</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Emerald Coast Gourmet To Go · A 3 Pillar Health Partner</p></div>
+  </div>
+</footer>
+
+<!-- Floating Cart -->
+<div class="floating-cart" id="floatingCart">
+  <button class="floating-cart-btn" onclick="window.location.href='order.html'">
+    🛒 <span id="fc-items">0 items</span> · <span class="fc-total" id="fc-total">$0</span>
+  </button>
+</div>
+
+<script src="cart.js"></script>
+<script>
+  // Update floating cart on this page
+  document.addEventListener('DOMContentLoaded', updateFloatingCart);
+  document.addEventListener('cartUpdated', updateFloatingCart);
+
+  function updateFloatingCart() {
+    const count = getItemCount();
+    const sub = getSubtotal();
+    const fc = document.getElementById('floatingCart');
+    document.getElementById('fc-items').textContent = count + (count === 1 ? ' item' : ' items');
+    document.getElementById('fc-total').textContent = '$' + sub.toFixed(2);
+    fc.classList.toggle('visible', count > 0);
+  }
+</script>
+</body>
+</html>

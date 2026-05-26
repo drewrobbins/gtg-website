@@ -1,0 +1,11 @@
+{
+  "name": "emerald-coast-gourmet-to-go",
+  "version": "1.0.0",
+  "description": "Emerald Coast Gourmet To Go — static website",
+  "scripts": {
+    "start": "npx serve -s . -l ${PORT:-3000}"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
