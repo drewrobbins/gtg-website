@@ -124,7 +124,7 @@ p { margin-bottom: 1rem; color: var(--text-mid); }
 .tier-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem; }
 .tier-card { border-radius: var(--radius); padding: 1.5rem 1rem; text-align: center; }
 .tier-card h4 { font-size: .95rem; margin-bottom: .5rem; }
-.tier-card p { font-size: .82rem; margin: 0; }
+.tier-card p { font-size: .82rem; margin: 0; color: rgba(255,255,255,0.92); }
 .tier-card.carnivore { background: #8b1a1a; color: #fff; } .tier-card.carnivore h4 { color: #ffd5d5; }
 .tier-card.carnivore-light { background: #b83232; color: #fff; } .tier-card.carnivore-light h4 { color: #ffe0e0; }
 .tier-card.ketovore { background: #1a6b3a; color: #fff; } .tier-card.ketovore h4 { color: #c8ffdb; }
