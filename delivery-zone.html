@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delivery Zone — Emerald Coast Gourmet To Go</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* ── Delivery Zone Page Styles ── */
+    .dz-hero {
+      background: var(--emerald);
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+    }
+    .dz-hero h1 { color: #fff; margin-bottom: .5rem; }
+    .dz-hero p  { color: rgba(255,255,255,.85); max-width: 540px; margin: 0 auto; }
+
+    .dz-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    /* ── Checker Card ── */
+    .dz-card {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 2rem 2rem 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .dz-card h2 {
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* ── GPS Button ── */
+    .btn-gps {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--emerald);
+      color: #fff;
+      border: none;
+      padding: .75rem 1.5rem;
+      border-radius: .6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .18s, transform .12s;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .btn-gps:hover  { background: #1d6b52; }
+    .btn-gps:active { transform: scale(.98); }
+    .btn-gps:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── Divider ── */
+    .dz-divider {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 1rem 0;
+      color: #9ca3af;
+      font-size: .875rem;
+    }
+    .dz-divider::before,
+    .dz-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5e7eb;
+    }
+
+    /* ── Address Input ── */
+    .dz-input-row {
+      display: flex;
+      gap: .6rem;
+    }
+    .dz-input-row input {
+      flex: 1;
+      padding: .7rem 1rem;
+      border: 1.5px solid #d1d5db;
+      border-radius: .6rem;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .18s;
+    }
+    .dz-input-row input:focus { border-color: var(--emerald); }
+    .dz-input-row button {
+      background: var(--gold, #c9a44b);
+      color: #fff;
+      border: none;
+      padding: .7rem 1.25rem;
+      border-radius: .6rem;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .18s;
+    }
+    .dz-input-row button:hover { background: #b8913a; }
+    .dz-input-row button:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── Result Banner ── */
+    .dz-result {
+      margin-top: 1.25rem;
+      padding: 1.1rem 1.25rem;
+      border-radius: .65rem;
+      font-size: 1rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: .6rem;
+      line-height: 1.4;
+    }
+    .dz-result.show { display: flex; }
+    .dz-result.yes {
+      background: #dcfce7;
+      color: #166534;
+      border: 1.5px solid #86efac;
+    }
+    .dz-result.no {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1.5px solid #fca5a5;
+    }
+    .dz-result.loading {
+      background: #f0fdf4;
+      color: #166534;
+      border: 1.5px solid #bbf7d0;
+      font-weight: 400;
+    }
+    .dz-result .result-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .dz-result .result-text { }
+    .dz-result .result-text small {
+      display: block;
+      font-weight: 400;
+      font-size: .85rem;
+      margin-top: .2rem;
+      opacity: .8;
+    }
+
+    /* ── Map ── */
+    #dz-map {
+      width: 100%;
+      height: 380px;
+      border-radius: .85rem;
+      border: 1.5px solid #e5e7eb;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    /* ── Communities List ── */
+    .dz-communities {
+      background: var(--light-bg, #f8faf8);
+      border-radius: .85rem;
+      padding: 1.75rem 2rem;
+      border: 1.5px solid #e5e7eb;
+    }
+    .dz-communities h3 {
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .dz-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .dz-tag {
+      background: var(--emerald);
+      color: #fff;
+      padding: .35rem .9rem;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-weight: 500;
+    }
+    .dz-tag.partial {
+      background: #6b9e8c;
+    }
+
+    /* ── CTA ── */
+    .dz-cta {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .dz-cta p {
+      color: #6b7280;
+      margin-bottom: 1rem;
+      font-size: .95rem;
+    }
+    .dz-cta .btn-row {
+      display: flex;
+      gap: .75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 520px) {
+      .dz-input-row { flex-direction: column; }
+      .dz-card { padding: 1.5rem 1.25rem; }
+      #dz-map { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="images/gtg-logo-badge.jpg" alt="Gourmet To Go" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="delivery-zone.html" class="nav-active">📍 Delivery Zone</a></li>
+      <li><a href="index.html#gift" class="nav-gift">🎁 Gift a Meal</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="order.html" class="nav-cart">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <a href="order.html" class="btn btn-gold btn-sm">Order Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="dz-hero">
+  <div class="container">
+    <span class="section-label">Delivery Coverage</span>
+    <h1>Are You in Our Zone?</h1>
+    <p>Use your location or enter your address to instantly check if we deliver to you.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="dz-wrapper">
+
+  <!-- CHECKER CARD -->
+  <div class="dz-card">
+    <h2>📍 Check Your Address</h2>
+
+    <button class="btn-gps" id="gpsBtn" onclick="useMyLocation()">
+      <span id="gpsBtnIcon">📡</span>
+      <span id="gpsBtnText">Use My Current Location</span>
+    </button>
+
+    <div class="dz-divider">or enter your address</div>
+
+    <div class="dz-input-row">
+      <input
+        type="text"
+        id="addressInput"
+        placeholder="e.g. 123 Scenic Hwy 30A, Santa Rosa Beach, FL"
+        onkeydown="if(event.key==='Enter') checkAddress()"
+      />
+      <button id="checkBtn" onclick="checkAddress()">Check</button>
+    </div>
+
+    <!-- Result Banner -->
+    <div class="dz-result" id="dzResult">
+      <span class="result-icon" id="resultIcon"></span>
+      <div class="result-text" id="resultText"></div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div id="dz-map"></div>
+
+  <!-- COMMUNITIES -->
+  <div class="dz-communities">
+    <h3>🗺️ Communities We Serve</h3>
+    <div class="dz-tags">
+      <span class="dz-tag">Miramar Beach</span>
+      <span class="dz-tag">Dune Allen Beach</span>
+      <span class="dz-tag">Santa Rosa Beach</span>
+      <span class="dz-tag">Blue Mountain Beach</span>
+      <span class="dz-tag">Gulf Place</span>
+      <span class="dz-tag">Grayton Beach</span>
+      <span class="dz-tag">WaterColor</span>
+      <span class="dz-tag">WaterSound</span>
+      <span class="dz-tag">Seaside</span>
+      <span class="dz-tag">Seagrove Beach</span>
+      <span class="dz-tag">Alys Beach</span>
+      <span class="dz-tag">Rosemary Beach</span>
+      <span class="dz-tag">Inlet Beach</span>
+    </div>
+    <p style="margin-top:1rem;font-size:.875rem;color:#6b7280;">
+      Minimum order: $100 · Free delivery on orders over $200 · Delivery Mon–Fri 4–6pm
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="dz-cta">
+    <p>Not in the zone? We still want to help — call us and let's figure it out.</p>
+    <div class="btn-row">
+      <a href="order.html" class="btn btn-gold">Order Now</a>
+      <a href="contact.html" class="btn btn-outline">Call Us: (850) 585-5979</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Emerald Coast Gourmet To Go</h4>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);">3906 US-98 Suite 40 · Santa Rosa Beach, FL 32459<br/>(850) 585-5979 · ecc.gtg@gmail.com</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="delivery-zone.html">Delivery Zone</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Retail: Tue–Sat 10am–5pm</li>
+          <li>Delivery: Mon–Fri 4–6pm</li>
+          <li>Min order: $100</li>
+          <li>Free delivery over $200</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Emerald Coast Gourmet To Go · A 3 Pillar Health Partner</p></div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="cart.js"></script>
+<script>
+// ──────────────────────────────────────────────
+// DELIVERY ZONE POLYGON
+// 30A Corridor: Miramar Beach (west) → Inlet Beach (east)
+// Coordinates: [lat, lng]
+// ──────────────────────────────────────────────
+const ZONE_POLYGON = [
+  [30.415, -86.422],  // NW Miramar Beach (inland north)
+  [30.398, -86.422],  // W Miramar Beach (mid)
+  [30.365, -86.408],  // SW Miramar Beach (coast approach)
+  [30.350, -86.388],  // Miramar Beach south coast
+  [30.316, -86.310],  // Dune Allen Beach coast
+  [30.299, -86.250],  // Blue Mountain Beach coast
+  [30.294, -86.178],  // Grayton Beach coast
+  [30.292, -86.150],  // WaterColor/Seaside coast
+  [30.287, -86.097],  // Alys Beach coast
+  [30.278, -86.045],  // Rosemary Beach coast
+  [30.266, -86.008],  // Inlet Beach (SE corner)
+  [30.320, -86.005],  // Inlet Beach north
+  [30.380, -86.010],  // NE corner (east boundary)
+  [30.450, -86.085],  // North inland east
+  [30.472, -86.190],  // North Santa Rosa Beach
+  [30.470, -86.310],  // North central (US-98 corridor)
+  [30.450, -86.390],  // North Miramar Beach
+];
+
+// ──────────────────────────────────────────────
+// POINT-IN-POLYGON  (ray casting)
+// ──────────────────────────────────────────────
+function pointInPolygon(lat, lng, polygon) {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [yi, xi] = polygon[i];
+    const [yj, xj] = polygon[j];
+    const intersect = ((yi > lat) !== (yj > lat)) &&
+      (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+// ──────────────────────────────────────────────
+// MAP SETUP
+// ──────────────────────────────────────────────
+const map = L.map('dz-map', {
+  center: [30.375, -86.210],
+  zoom: 11,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(map);
+
+// Draw the delivery zone
+const zoneLayer = L.polygon(ZONE_POLYGON, {
+  color: '#2d8c6e',
+  fillColor: '#2d8c6e',
+  fillOpacity: 0.20,
+  weight: 2.5,
+  dashArray: '6, 4'
+}).addTo(map);
+
+zoneLayer.bindPopup('<strong>✅ Delivery Zone</strong><br/>30A Corridor · Miramar Beach to Inlet Beach');
+
+// Fit map to zone
+map.fitBounds(zoneLayer.getBounds(), { padding: [24, 24] });
+
+// Kitchen marker
+const kitchenIcon = L.divIcon({
+  html: '<div style="font-size:22px;line-height:1;">👨‍🍳</div>',
+  iconSize: [28, 28],
+  iconAnchor: [14, 14],
+  className: ''
+});
+L.marker([30.4155, -86.2289], { icon: kitchenIcon })
+  .addTo(map)
+  .bindPopup('<strong>GTG Kitchen</strong><br/>3906 US-98 · Santa Rosa Beach');
+
+// User location marker (set later)
+let userMarker = null;
+
+// ──────────────────────────────────────────────
+// SHOW RESULT
+// ──────────────────────────────────────────────
+function showResult(type, title, sub) {
+  const el = document.getElementById('dzResult');
+  const icon = document.getElementById('resultIcon');
+  const text = document.getElementById('resultText');
+  el.className = 'dz-result show ' + type;
+  icon.textContent = type === 'yes' ? '✅' : type === 'no' ? '❌' : '⏳';
+  text.innerHTML = title + (sub ? '<small>' + sub + '</small>' : '');
+}
+
+function clearResult() {
+  document.getElementById('dzResult').className = 'dz-result';
+}
+
+// ──────────────────────────────────────────────
+// PLACE MARKER + CHECK
+// ──────────────────────────────────────────────
+function placeAndCheck(lat, lng, label) {
+  if (userMarker) { map.removeLayer(userMarker); }
+
+  const pinIcon = L.divIcon({
+    html: '<div style="font-size:24px;line-height:1;">📍</div>',
+    iconSize: [28, 36],
+    iconAnchor: [14, 34],
+    className: ''
+  });
+
+  userMarker = L.marker([lat, lng], { icon: pinIcon })
+    .addTo(map)
+    .bindPopup('<strong>' + label + '</strong>')
+    .openPopup();
+
+  map.setView([lat, lng], 13, { animate: true });
+
+  const inZone = pointInPolygon(lat, lng, ZONE_POLYGON);
+
+  if (inZone) {
+    showResult('yes',
+      'Great news — we deliver to you! 🎉',
+      'Place your order online or call (850) 585-5979. Minimum $100 · Free delivery over $200.'
+    );
+  } else {
+    showResult('no',
+      'That address is outside our current delivery zone.',
+      'We cover the 30A corridor from Miramar Beach to Inlet Beach. Call us — we may be able to accommodate special requests.'
+    );
+  }
+}
+
+// ──────────────────────────────────────────────
+// GPS LOCATION
+// ──────────────────────────────────────────────
+function useMyLocation() {
+  if (!navigator.geolocation) {
+    showResult('no', 'Location not supported by your browser.', 'Please enter your address below.');
+    return;
+  }
+  const btn = document.getElementById('gpsBtn');
+  const icon = document.getElementById('gpsBtnIcon');
+  const text = document.getElementById('gpsBtnText');
+  btn.disabled = true;
+  icon.textContent = '⏳';
+  text.textContent = 'Locating you…';
+  showResult('loading', 'Getting your location…', '');
+
+  navigator.geolocation.getCurrentPosition(
+    function(pos) {
+      btn.disabled = false;
+      icon.textContent = '📡';
+      text.textContent = 'Use My Current Location';
+      placeAndCheck(pos.coords.latitude, pos.coords.longitude, 'Your Location');
+    },
+    function(err) {
+      btn.disabled = false;
+      icon.textContent = '📡';
+      text.textContent = 'Use My Current Location';
+      clearResult();
+      showResult('no',
+        'Could not access your location.',
+        'Please check your browser permissions, or enter your address below.'
+      );
+    },
+    { timeout: 10000, enableHighAccuracy: true }
+  );
+}
+
+// ──────────────────────────────────────────────
+// ADDRESS GEOCODING (Nominatim / OpenStreetMap)
+// ──────────────────────────────────────────────
+let geocodeTimer = null;
+
+function checkAddress() {
+  const input = document.getElementById('addressInput').value.trim();
+  if (!input) {
+    document.getElementById('addressInput').focus();
+    return;
+  }
+
+  const btn = document.getElementById('checkBtn');
+  btn.disabled = true;
+  btn.textContent = '…';
+  showResult('loading', 'Looking up your address…', '');
+
+  // Bias search to NW Florida
+  const query = encodeURIComponent(input + ', Florida');
+  const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + query +
+              '&viewbox=-86.6,30.1,-85.8,30.6&bounded=0';
+
+  fetch(url, {
+    headers: { 'Accept': 'application/json', 'Accept-Language': 'en' }
+  })
+  .then(r => r.json())
+  .then(data => {
+    btn.disabled = false;
+    btn.textContent = 'Check';
+    if (!data || data.length === 0) {
+      showResult('no',
+        'Address not found.',
+        'Try adding a zip code or city name (e.g. "123 Main St, Santa Rosa Beach, FL 32459").'
+      );
+      return;
+    }
+    const { lat, lon, display_name } = data[0];
+    const shortName = display_name.split(',').slice(0, 3).join(',');
+    placeAndCheck(parseFloat(lat), parseFloat(lon), shortName);
+  })
+  .catch(err => {
+    btn.disabled = false;
+    btn.textContent = 'Check';
+    showResult('no',
+      'Could not look up address. Check your internet connection.',
+      'Or call us directly: (850) 585-5979'
+    );
+  });
+}
+
+// Cart badge init
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof updateCartBadge === 'function') updateCartBadge();
+});
+</script>
+</body>
+</html>
