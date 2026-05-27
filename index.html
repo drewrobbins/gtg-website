@@ -3,45 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emerald Coast Gourmet To Go — Premium Metabolic Meals, 30A Florida</title>
+  <title>GTG v4 Preview — Emerald Coast Gourmet To Go</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="cart.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">
+    <a class="nav-logo" href="#">
       <img src="images/gtg-logo-badge.jpg" alt="Gourmet To Go" />
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
       <li><a href="subscribe.html">Subscribe</a></li>
       <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html">Our Story</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
-      <li>
-        <a href="order.html" class="nav-cart-btn" style="position:relative;">
-          🛒 <span class="cart-btn-text">Cart</span>
-          <span class="cart-badge">0</span>
-        </a>
-      </li>
+      <li><a href="#gift" class="nav-gift">🎁 Gift a Meal</a></li>
     </ul>
+    <div class="nav-right">
+      <a href="order.html" class="nav-cart">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <a href="order.html" class="btn btn-gold btn-sm">Order Now</a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <span class="hero-badge">Now Serving 30A · Santa Rosa Beach · Destin</span>
-    <h1>Chef-Crafted Meals.<br/>Your Metabolic Goals, Delivered.</h1>
-    <p>The Florida Panhandle's only dedicated whole-food, carnivore, and low-carb culinary studio. Prepared fresh by Chef Gary Serafin — 40+ years of culinary mastery — and nutritionally curated by the team at 3 Pillar Health.</p>
-    <div class="hero-btns">
-      <a href="menu.html" class="btn btn-gold">Order Online Now</a>
-      <a href="subscribe.html" class="btn btn-outline">Weekly Subscription</a>
-      <a href="tel:8505855979" class="btn btn-white">Call (850) 585-5979</a>
+  <div class="hero-copy">
+    <div class="hero-eyebrow">✦ 30A's Only Metabolic Kitchen</div>
+    <h1>Chef-Crafted Meals.<br/><em>Actually Good</em><br/>for You.</h1>
+    <p class="hero-sub">No seed oils. No fillers. No compromises. Chef Gary Serafin cooks every order fresh — delivered to your door or waiting in your vacation rental fridge.</p>
+    <div class="hero-ctas">
+      <a href="order.html" class="btn btn-gold">Order This Week's Menu</a>
+      <a href="menu.html" class="btn btn-outline">Browse the Menu</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span>🚫</span><span>Zero seed oils</span></div>
+      <div class="hero-trust-item"><span>👨‍🍳</span><span>Chef-cooked fresh</span></div>
+      <div class="hero-trust-item"><span>🚗</span><span>30A delivery</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="images/gourmet-to-go-northwest-florida-home10-scaled.jpeg" alt="Chef Gary's kitchen" />
+    <div class="hero-visual-badge">
+      <div class="hero-visual-badge-icon">🥩</div>
+      <div>
+        <strong>Beef Strada</strong>
+        <span>Pure Carnivore · Feeds 2–3 · $48</span>
+      </div>
     </div>
   </div>
 </section>
@@ -49,168 +64,166 @@
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="container">
-    <div class="stats-grid">
+    <div class="stats-inner">
       <div class="stat-item">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Years Culinary Experience</div>
+        <div class="stat-number">17<span style="font-size:1.5rem;">yrs</span></div>
+        <div class="stat-label">Chef Gary on the Florida Panhandle</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">48hr</div>
-        <div class="stat-label">Fresh Made to Order</div>
+        <div class="stat-number">0</div>
+        <div class="stat-label">Seed oils. Ever.</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Dietary Tier Options</div>
+        <div class="stat-number">48<span style="font-size:1.5rem;">hr</span></div>
+        <div class="stat-label">Fresh-cooked lead time</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">$0</div>
-        <div class="stat-label">Delivery Over $200</div>
+        <div class="stat-number">5</div>
+        <div class="stat-label">Dietary tiers — from Carnivore to Classic</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 3P APPROVED TIERS -->
-<section class="section">
+<!-- HOW IT WORKS — 4 PROGRAMS -->
+<section class="section program-section">
   <div class="container">
-    <span class="section-label">3P Approved Dietary Tiers</span>
-    <h2>Food That Matches How You Eat</h2>
-    <p>Every item on our menu is classified by Drew Robbins' metabolic health framework. Filter by your dietary approach and order with confidence.</p>
-    <div class="tier-cards">
-      <div class="tier-card carnivore">
-        <h4>🥩 Pure Carnivore</h4>
-        <p>Animal proteins only. Zero plant inputs. Maximum metabolic impact.</p>
+    <div style="text-align:center;margin-bottom:.5rem;"><span class="label">How It Works</span></div>
+    <h2 style="text-align:center;font-size:clamp(1.8rem,3.5vw,2.5rem);">Four Ways to Eat Well on 30A</h2>
+
+    <div class="program-grid">
+
+      <!-- Subscriber -->
+      <div class="program-card gold">
+        <div class="program-icon">📅</div>
+        <h3>Weekly Subscriber</h3>
+        <p>Set it and forget it. Meals locked in every Sunday, delivered Tuesday.</p>
+        <ul class="program-steps">
+          <li>Lock in by Sunday 8pm</li>
+          <li>Chef Gary cooks Monday</li>
+          <li>Delivered Mon–Fri 4–6pm</li>
+        </ul>
+        <a href="subscribe.html" class="program-cta">See plans →</a>
       </div>
-      <div class="tier-card carnivore-light">
-        <h4>🥩 Carnivore Light</h4>
-        <p>Mostly animal-based with minimal low-toxin plant additions.</p>
+
+      <!-- Vacation Rental -->
+      <div class="program-card green">
+        <div class="program-icon">🏖️</div>
+        <h3>Vacation Rental Guest</h3>
+        <p>Order before you arrive. We stock your rental fridge. Open the door to dinner.</p>
+        <ul class="program-steps">
+          <li>Order 48hr before arrival</li>
+          <li>We coordinate with your host</li>
+          <li>Open the fridge &amp; eat</li>
+        </ul>
+        <a href="partners.html" class="program-cta">Vacation packs →</a>
       </div>
-      <div class="tier-card ketovore">
-        <h4>🥑 Ketovore</h4>
-        <p>High fat, ketogenic, animal-forward with select whole vegetables.</p>
+
+      <!-- WAN -->
+      <div class="program-card amber">
+        <div class="program-icon">🧊</div>
+        <h3>WAN — What's Available Now</h3>
+        <div class="program-wan-badge">🕐 Fresh 24–48hr window</div>
+        <p>Walk in, grab what Chef Gary cooked. Fresh from the kitchen, never frozen yet.</p>
+        <ul class="program-steps">
+          <li>Check today's cooler inventory</li>
+          <li>Stop by — no appointment</li>
+          <li>Grab &amp; go before it freezes</li>
+        </ul>
+        <a href="menu.html" class="program-cta">See what's in the cooler →</a>
       </div>
-      <div class="tier-card lowcarb">
-        <h4>🌿 Low Carb</h4>
-        <p>Under 20g net carbs. No grains, no sugar, whole-food focused.</p>
+
+      <!-- Online Order -->
+      <div class="program-card navy">
+        <div class="program-icon">💻</div>
+        <h3>Order Online — 48hrs Ahead</h3>
+        <p>Locals and guests: browse the full menu and get it delivered to your door.</p>
+        <ul class="program-steps">
+          <li>Create a free account</li>
+          <li>Choose your meals</li>
+          <li>Delivered Mon–Fri 4–6pm</li>
+        </ul>
+        <a href="order.html" class="program-cta">Order now →</a>
       </div>
-      <div class="tier-card classic">
-        <h4>🍽️ GTG Classic</h4>
-        <p>Chef Gary's original recipes — premium ingredients, no shortcuts.</p>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- DR. DREW CALLOUT -->
-<div class="dr-drew">
+<!-- THIS WEEK'S MENU CAROUSEL -->
+<section class="section menu-section" id="this-week">
   <div class="container">
-    <div class="dr-drew-inner">
-      <div class="dr-drew-text">
-        <span class="dr-drew-badge">3 Pillar Health · Drew Robbins</span>
-        <h3>"I built the 3P Approved framework because my patients needed food that matched their metabolic protocols — not just 'healthy' marketing."</h3>
-        <p>Drew Robbins is a Metabolic Health Practitioner and founder of 3 Pillar Health. Every 3P Approved item on our menu meets his clinical standards for metabolic support, ingredient quality, and therapeutic value.</p>
-        <a href="menu.html" class="btn btn-gold">Shop 3P Approved Items</a>
+    <span class="label" style="display:block;text-align:center;">From the Kitchen</span>
+    <h2>This Week's Menu</h2>
+    <p class="section-sub">Chef Gary cooks fresh every week. Order 48 hours ahead — pickup or delivery. Every dish feeds 2–3.</p>
+
+    <div class="carousel-wrap">
+      <button class="carousel-btn" id="carouselPrev" aria-label="Previous" onclick="carouselMove(-1)">&#8249;</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack"></div>
       </div>
+      <button class="carousel-btn" id="carouselNext" aria-label="Next" onclick="carouselMove(1)">&#8250;</button>
     </div>
-  </div>
-</div>
+    <div class="carousel-dots" id="carouselDots"></div>
 
-<!-- VRBO / PRE-ARRIVAL BANNER -->
-<div class="vrbo-banner">
-  <div class="container">
-    <h2>Arriving on 30A? Dinner Can Be Waiting.</h2>
-    <p>Planning a vacation rental stay in Santa Rosa Beach, Seaside, or Rosemary Beach? Pre-order your first night's meal before you arrive. We deliver Mon–Fri 4–6pm.</p>
-    <a href="partners.html" class="btn btn-gold">Vacation Rental Meal Packs</a>
-  </div>
-</div>
-
-<!-- FEATURED MENU ITEMS -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">From the Kitchen</span>
-    <h2>This Week's Featured Dishes</h2>
-    <div class="menu-grid">
-
-      <div class="menu-card" data-item-id="shrimp-etouffee">
-        <img class="menu-card-img" src="images/shrimp-etouffee-300x300.png" alt="Shrimp Étouffée" onerror="this.style.display='none'" />
-        <div class="menu-card-body">
-          <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
-          <h4>Shrimp Étouffée</h4>
-          <p>Gulf shrimp in rich Cajun roux, served over cauliflower rice upon request.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-price">$34</span>
-            <button class="add-to-cart-btn" onclick="addToCart('shrimp-etouffee','Shrimp Étouffée',34,'Low Carb','images/shrimp-etouffee-300x300.png')">+ Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card" data-item-id="beef-strada">
-        <img class="menu-card-img" src="images/beef-strada-300x300.png" alt="Beef Strada" onerror="this.style.display='none'" />
-        <div class="menu-card-body">
-          <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
-          <h4>Beef Strada</h4>
-          <p>Premium ground beef, eggs, aged cheddar. Zero carb. Our carnivore flagship.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-price">$48</span>
-            <button class="add-to-cart-btn" onclick="addToCart('beef-strada','Beef Strada',48,'Pure Carnivore','images/beef-strada-300x300.png')">+ Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card" data-item-id="bread-pudding">
-        <img class="menu-card-img" src="images/bread-pudding-300x300.png" alt="Bread Pudding" onerror="this.style.display='none'" />
-        <div class="menu-card-body">
-          <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
-          <h4>New Orleans Bread Pudding</h4>
-          <p>Brioche, bourbon vanilla sauce, toasted pecans. Chef Gary's most-requested dessert.</p>
-          <div class="menu-card-footer">
-            <span class="menu-card-price">$13</span>
-            <button class="add-to-cart-btn" onclick="addToCart('bread-pudding','New Orleans Bread Pudding',13,'GTG Classic','images/bread-pudding-300x300.png')">+ Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
     <div style="text-align:center;margin-top:2.5rem;">
-      <a href="menu.html" class="btn btn-gold">See Full Menu & Pricing</a>
+      <a href="menu.html" class="btn btn-dark">See Full Menu &amp; Pricing</a>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section section--alt">
+<!-- GIFT SECTION -->
+<section class="section gift-section" id="gift">
   <div class="container">
-    <span class="section-label">How It Works</span>
-    <h2>Ordering Is Simple</h2>
-    <div class="grid-3" style="margin-top:2rem;">
-      <div style="text-align:center;padding:2rem;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">🛒</div>
-        <h4>1. Order Online</h4>
-        <p>Browse the menu, add items to your cart, and checkout in minutes. No phone call required.</p>
+    <div class="gift-inner">
+
+      <div class="gift-copy">
+        <span class="label" style="color:var(--gold);">The Perfect 30A Gift</span>
+        <h2>Send Chef Gary's Food as a Gift</h2>
+        <p>Know someone renting a beach house on 30A? Order ahead and we'll stock their fridge before they arrive. They open the door to a chef-cooked dinner — no grocery runs, no restaurant wait.</p>
+        <p style="font-size:.9rem;color:#9ca3af;">Perfect for: friends &amp; family at vacation rentals · wedding party houses · birthday trips · anniversary getaways</p>
+        <div class="gift-ctas">
+          <a href="order.html?gift=1" class="btn btn-gold">Send a Food Gift</a>
+          <a href="partners.html" class="btn btn-outline">Vacation Partners</a>
+        </div>
       </div>
-      <div style="text-align:center;padding:2rem;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">👨‍🍳</div>
-        <h4>2. Chef Gary Cooks Fresh</h4>
-        <p>Every dish made to order in our licensed commercial kitchen. 48-hour lead time for freshness.</p>
+
+      <div class="gift-steps">
+        <div class="gift-step">
+          <div class="gift-step-icon">🏠</div>
+          <div>
+            <strong>They Book the Rental</strong>
+            <p>Your people lock in their 30A house — you handle the welcome dinner.</p>
+          </div>
+        </div>
+        <div class="gift-connector"></div>
+        <div class="gift-step">
+          <div class="gift-step-icon">📱</div>
+          <div>
+            <strong>You Order Online</strong>
+            <p>Pick meals from the full menu, add a gift note. 48hr lead time before their arrival.</p>
+          </div>
+        </div>
+        <div class="gift-connector"></div>
+        <div class="gift-step">
+          <div class="gift-step-icon">🍽️</div>
+          <div>
+            <strong>They Arrive to Dinner</strong>
+            <p>Chef Gary's meals are in the fridge, ready to heat. First night on 30A sorted.</p>
+          </div>
+        </div>
       </div>
-      <div style="text-align:center;padding:2rem;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">🚗</div>
-        <h4>3. Pick Up or Delivery</h4>
-        <p>Pick up Tue–Sat 10am–5pm, or delivery Mon–Fri 4–6pm. Free delivery over $200.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="menu.html" class="btn btn-gold">Start Your Order</a>
+
     </div>
   </div>
 </section>
 
-<!-- SUBSCRIPTION TEASER -->
+<!-- SUBSCRIPTION CTA -->
 <section class="section section--dark">
-  <div class="container" style="text-align:center;">
-    <span class="section-label">The Weekly Table</span>
+  <div class="container sub-cta">
+    <span class="label" style="color:var(--gold-light);display:block;margin-bottom:.5rem;">The Weekly Table</span>
     <h2>Never Think About Dinner Again</h2>
-    <p style="max-width:580px;margin:0 auto 2rem;">Lock in your weekly meals by Sunday 8pm. We cook, you eat. Starting at $85/week with free delivery on all subscriptions.</p>
+    <p>Lock in your weekly meals by Sunday 8pm. We cook, you eat. Starting at $85/week with free delivery on all subscriptions.</p>
     <a href="subscribe.html" class="btn btn-gold">See Subscription Plans</a>
   </div>
 </section>
@@ -221,56 +234,168 @@
     <div class="footer-grid">
       <div>
         <h4>Emerald Coast Gourmet To Go</h4>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.65);">Premium metabolic meals crafted by Chef Gary Serafin. Serving Santa Rosa Beach and the 30A corridor.</p>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.65);margin-top:.5rem;">3906 US-98 Suite 40<br/>Santa Rosa Beach, FL 32459<br/>(850) 585-5979</p>
+        <p style="font-size:.875rem;line-height:1.7;margin-bottom:1rem;">Premium metabolic meals crafted by Chef Gary Serafin. Serving Santa Rosa Beach and the 30A corridor.</p>
+        <p style="font-size:.875rem;">3906 US-98 Suite 40<br/>Santa Rosa Beach, FL 32459<br/>(850) 585-5979</p>
       </div>
       <div>
-        <h4>Menu</h4>
+        <h4>Order</h4>
         <ul>
-          <li><a href="menu.html#stratas">3P Stratas</a></li>
-          <li><a href="menu.html#entrees">Entrées</a></li>
-          <li><a href="menu.html#soups">Soups & Gumbos</a></li>
-          <li><a href="menu.html#sides">Sides</a></li>
-          <li><a href="menu.html#desserts">Desserts</a></li>
+          <li><a href="menu.html">This Week's Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="subscribe.html">Weekly Subscription</a></li>
+          <li><a href="partners.html">Vacation Rental Packs</a></li>
         </ul>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4>About</h4>
         <ul>
-          <li><a href="order.html">Order Online</a></li>
-          <li><a href="subscribe.html">Weekly Subscription</a></li>
-          <li><a href="partners.html">Vacation Rental Partners</a></li>
           <li><a href="about.html">Our Story</a></li>
-          <li><a href="contact.html">Hours & Delivery</a></li>
-          <li><a href="feedback.html">Share Feedback</a></li>
+          <li><a href="contact.html">Contact &amp; Hours</a></li>
+          <li><a href="feedback.html">Leave Feedback</a></li>
+          <li><a href="#gift">Gift a Meal</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Emerald Coast Gourmet To Go · A 3 Pillar Health Partner · ecc.gtg@gmail.com</p>
+      <span>© 2026 Emerald Coast Gourmet To Go. All rights reserved.</span>
+      <span style="color:rgba(255,255,255,.35);">Zero seed oils. Always.</span>
     </div>
   </div>
 </footer>
 
-<!-- Floating Cart -->
-<div class="floating-cart" id="floatingCart">
-  <button class="floating-cart-btn" onclick="window.location.href='order.html'">
-    🛒 <span id="fc-items">0 items</span> · <span id="fc-total" style="color:var(--gold);">$0</span>
-  </button>
-</div>
-
-<script src="cart.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', updateFloatingCart);
-  document.addEventListener('cartUpdated', updateFloatingCart);
-  function updateFloatingCart() {
-    const count = getItemCount();
-    const sub = getSubtotal();
-    const fc = document.getElementById('floatingCart');
-    document.getElementById('fc-items').textContent = count + (count === 1 ? ' item' : ' items');
-    document.getElementById('fc-total').textContent = '$' + sub.toFixed(2);
-    fc.classList.toggle('visible', count > 0);
+// ================================================================
+// THIS WEEK'S MENU — UPDATE THIS EVERY WEEK
+// ================================================================
+const WEEKLY_ITEMS = [
+  {
+    id: 'beef-strada',
+    name: 'Beef Strada',
+    desc: 'Premium ground beef, eggs, aged cheddar. Zero carb. Our carnivore flagship.',
+    price: 48,
+    tierLabel: '🥩 Pure Carnivore', tierClass: 'tier-carnivore',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }, { text: '✅ 3P Approved', cls: 'badge-3p' }],
+    img: 'images/Beef-Strada.jpg'
+  },
+  {
+    id: 'lamb-strada',
+    name: 'Lamb Strada',
+    desc: 'Pasture-raised lamb, rosemary, eggs, manchego. Rich, deeply satisfying.',
+    price: 52,
+    tierLabel: '🥩 Pure Carnivore', tierClass: 'tier-carnivore',
+    badges: [{ text: "⭐ Chef's Pick", cls: 'badge-chefs-pick' }, { text: '✅ 3P Approved', cls: 'badge-3p' }],
+    img: 'images/Lamb-Strada.jpg'
+  },
+  {
+    id: 'shrimp-etouffee',
+    name: 'Shrimp Étouffée',
+    desc: 'Gulf shrimp in rich Cajun roux, served over cauliflower rice upon request.',
+    price: 34,
+    tierLabel: '🌿 Low Carb', tierClass: 'tier-lowcarb',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }],
+    img: 'images/Shrimp-Etouffee-copy-300x200.png'
+  },
+  {
+    id: 'chicken-gumbo',
+    name: 'Chicken & Sausage Gumbo',
+    desc: 'Deep dark roux, andouille sausage, Gulf seasoning. A Florida Panhandle classic.',
+    price: 18,
+    tierLabel: '🌿 Low Carb', tierClass: 'tier-lowcarb',
+    badges: [{ text: "⭐ Chef's Pick", cls: 'badge-chefs-pick' }, { text: '🏆 Bestseller', cls: 'badge-bestseller' }],
+    img: 'images/Chicken-and-Andouille-Sausage-Gumbo-rich-dark-roux-with-Creole-seasoning-add-rice-1-300x300.jpeg'
+  },
+  {
+    id: 'lasagna',
+    name: 'Three-Cheese Meat Lasagna',
+    desc: 'Rich tomato sauce, Fontina, Romano, Cottage Cheese with ground beef. Feeds 2.',
+    price: 34,
+    tierLabel: '🍽️ GTG Classic', tierClass: 'tier-classic',
+    badges: [{ text: "⭐ Chef's Pick", cls: 'badge-chefs-pick' }],
+    img: 'images/Three-Cheese-Meat-Lasagna-Rich-Tomato-sauce.-Fontina-Romano-and-Cottage-Cheese-w-Ground-Beef.jpeg'
+  },
+  {
+    id: 'bread-pudding',
+    name: 'New Orleans Bread Pudding',
+    desc: "Brioche, bourbon vanilla sauce, toasted pecans. Chef Gary's most-requested dessert.",
+    price: 13,
+    tierLabel: '🍽️ GTG Classic', tierClass: 'tier-classic',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }, { text: "⭐ Chef's Pick", cls: 'badge-chefs-pick' }],
+    img: 'images/Bread-pudding-300x300.jpg'
   }
+];
+
+// — Carousel engine —
+let carouselPos = 0;
+function getVis() { return window.innerWidth > 900 ? 3 : window.innerWidth > 600 ? 2 : 1; }
+
+function carouselInit() {
+  const track = document.getElementById('carouselTrack');
+  const dots  = document.getElementById('carouselDots');
+  if (!track) return;
+  track.innerHTML = WEEKLY_ITEMS.map(item => {
+    const badgeHTML = [
+      `<span class="tier-badge ${item.tierClass}">${item.tierLabel}</span>`,
+      ...item.badges.map(b => `<span class="badge ${b.cls}">${b.text}</span>`)
+    ].join(' ');
+    const imgEl = item.img
+      ? `<img class="carousel-slide-img" src="${item.img}" alt="${item.name}" onerror="this.parentElement.innerHTML='<div class=carousel-slide-placeholder>🍽️</div>'" loading="lazy" />`
+      : `<div class="carousel-slide-placeholder">🍽️</div>`;
+    return `<div class="carousel-slide">
+      ${imgEl}
+      <div class="carousel-slide-body">
+        <div class="menu-badges">${badgeHTML}</div>
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <div class="slide-footer">
+          <span class="slide-price">$${item.price}</span>
+          <button class="atc-btn" onclick="addToCart('${item.id}','${item.name}',${item.price},'${item.tierLabel}','${item.img}')">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  dots.innerHTML = WEEKLY_ITEMS.map((_, i) =>
+    `<button class="carousel-dot${i===0?' active':''}" onclick="carouselTo(${i})"></button>`
+  ).join('');
+  carouselUpdate();
+}
+
+function carouselUpdate() {
+  const track = document.getElementById('carouselTrack');
+  const dotsEl = document.querySelectorAll('.carousel-dot');
+  const prev = document.getElementById('carouselPrev');
+  const next = document.getElementById('carouselNext');
+  if (!track || !track.children.length) return;
+  const vis = getVis();
+  const max = Math.max(0, WEEKLY_ITEMS.length - vis);
+  carouselPos = Math.min(Math.max(carouselPos, 0), max);
+  const gap = 20;
+  const slideW = track.children[0].offsetWidth + gap;
+  track.style.transform = `translateX(-${carouselPos * slideW}px)`;
+  dotsEl.forEach((d, i) => d.classList.toggle('active', i === carouselPos));
+  if (prev) prev.disabled = carouselPos === 0;
+  if (next) next.disabled = carouselPos >= max;
+}
+
+function carouselMove(dir) { carouselPos += dir; carouselUpdate(); }
+function carouselTo(i)     { carouselPos = i;   carouselUpdate(); }
+
+document.addEventListener('DOMContentLoaded', carouselInit);
+window.addEventListener('resize', () => { carouselPos = 0; carouselUpdate(); });
+
+// Touch support
+(function(){
+  let sx = 0;
+  document.addEventListener('DOMContentLoaded', () => {
+    const vp = document.querySelector('.carousel-viewport');
+    if (!vp) return;
+    vp.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) carouselMove(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  });
+})();
 </script>
+
 </body>
 </html>

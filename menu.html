@@ -10,7 +10,9 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html"><img src="images/gtg-logo-badge.jpg" alt="Gourmet To Go" /></a>
+    <a class="nav-logo" href="index.html">
+      <img src="images/gtg-logo-badge.jpg" alt="Gourmet To Go" />
+    </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
@@ -18,14 +20,14 @@
       <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html">Our Story</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
-      <li>
-        <a href="order.html" class="nav-cart-btn" style="position:relative;">
-          🛒 <span class="cart-btn-text">Cart</span>
-          <span class="cart-badge">0</span>
-        </a>
-      </li>
+      <li><a href="index.html#gift" class="nav-gift">🎁 Gift a Meal</a></li>
     </ul>
+    <div class="nav-right">
+      <a href="order.html" class="nav-cart">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <a href="order.html" class="btn btn-gold btn-sm">Order Now</a>
+    </div>
   </div>
 </nav>
 
@@ -67,7 +69,7 @@
         <div class="menu-card" data-item-id="beef-strada">
           <img class="menu-card-img" src="images/beef-strada-300x300.png" alt="Beef Strada" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <div class="menu-badges"><span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span> <span class="badge badge-bestseller">🏆 Bestseller</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Beef Strada</h4>
             <p>Premium ground beef, eggs, aged cheddar. Zero carb. Feeds 2–3.</p>
             <div class="menu-card-footer">
@@ -80,7 +82,7 @@
         <div class="menu-card" data-item-id="lamb-strada">
           <img class="menu-card-img" src="images/lamb-strada-300x300.png" alt="Lamb Strada" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <div class="menu-badges"><span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Lamb Strada</h4>
             <p>Pasture-raised lamb, rosemary, eggs, manchego. Rich, deeply satisfying. Feeds 2–3.</p>
             <div class="menu-card-footer">
@@ -93,7 +95,7 @@
         <div class="menu-card" data-item-id="sw-chicken-strada">
           <img class="menu-card-img" src="images/sw-chicken-strada-300x300.png" alt="SW Chicken Strada" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+            <div class="menu-badges"><span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Southwest Chicken Strada</h4>
             <p>Free-range chicken, roasted peppers, pepper jack. 3g net carbs. Feeds 2–3.</p>
             <div class="menu-card-footer">
@@ -118,7 +120,7 @@
         <div class="menu-card" data-item-id="shrimp-etouffee">
           <img class="menu-card-img" src="images/shrimp-etouffee-300x300.png" alt="Shrimp Étouffée" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <div class="menu-badges"><span class="tier-badge tier-lowcarb">🌿 Low Carb</span> <span class="badge badge-bestseller">🏆 Bestseller</span></div>
             <h4>Shrimp Étouffée</h4>
             <p>Gulf shrimp, Cajun roux, Trinity vegetables. Request cauliflower rice.</p>
             <div class="menu-card-footer">
@@ -157,7 +159,7 @@
         <div class="menu-card" data-item-id="meat-lasagna">
           <img class="menu-card-img" src="images/meat-lasagna-300x300.png" alt="Meat Lasagna" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <div class="menu-badges"><span class="tier-badge tier-classic">🍽️ GTG Classic</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span></div>
             <h4>Meat Lasagna</h4>
             <p>Chef Gary's signature — house-made meat sauce, ricotta, fresh pasta layers.</p>
             <div class="menu-card-footer">
@@ -229,7 +231,7 @@
 
         <div class="menu-card" data-item-id="chicken-gumbo">
           <div class="menu-card-body">
-            <span class="tier-badge tier-lowcarb">🌿 Low Carb</span>
+            <div class="menu-badges"><span class="tier-badge tier-lowcarb">🌿 Low Carb</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span> <span class="badge badge-bestseller">🏆 Bestseller</span></div>
             <h4>Chicken & Sausage Gumbo</h4>
             <p>Deep dark roux, andouille sausage, Gulf seasoning. A Florida Panhandle classic.</p>
             <div class="menu-card-footer">
@@ -253,7 +255,7 @@
 
         <div class="menu-card" data-item-id="lobster-bisque">
           <div class="menu-card-body">
-            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <div class="menu-badges"><span class="tier-badge tier-ketovore">🥑 Ketovore</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span></div>
             <h4>Lobster Bisque</h4>
             <p>Rich cream base, lobster meat, hint of sherry. Pure luxury.</p>
             <div class="menu-card-footer">
@@ -313,7 +315,7 @@
 
         <div class="menu-card" data-item-id="cauliflower-mash">
           <div class="menu-card-body">
-            <span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span>
+            <div class="menu-badges"><span class="tier-badge tier-carnivore-light">🥩 Carnivore Light</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Cauliflower Mash</h4>
             <p>Butter, cream, roasted garlic. Perfect low-carb swap.</p>
             <div class="menu-card-footer">
@@ -338,7 +340,7 @@
 
         <div class="menu-card" data-item-id="bone-broth">
           <div class="menu-card-body">
-            <span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span>
+            <div class="menu-badges"><span class="tier-badge tier-carnivore">🥩 Pure Carnivore</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Bone Broth</h4>
             <p>24-hour simmered beef bone broth. 20g protein per serving.</p>
             <div class="menu-card-footer">
@@ -362,7 +364,7 @@
 
         <div class="menu-card" data-item-id="mac-cheese">
           <div class="menu-card-body">
-            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <div class="menu-badges"><span class="tier-badge tier-classic">🍽️ GTG Classic</span> <span class="badge badge-bestseller">🏆 Bestseller</span></div>
             <h4>Mac & Cheese</h4>
             <p>Over 1¼ lb with Fontina and Sharp Cheddar. Comfort food elevated.</p>
             <div class="menu-card-footer">
@@ -399,7 +401,7 @@
         <div class="menu-card" data-item-id="bread-pudding">
           <img class="menu-card-img" src="images/bread-pudding-300x300.png" alt="Bread Pudding" onerror="this.style.display='none'" />
           <div class="menu-card-body">
-            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <div class="menu-badges"><span class="tier-badge tier-classic">🍽️ GTG Classic</span> <span class="badge badge-bestseller">🏆 Bestseller</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span></div>
             <h4>New Orleans Bread Pudding</h4>
             <p>Brioche, bourbon vanilla sauce, toasted pecans. Legendary.</p>
             <div class="menu-card-footer">
@@ -411,7 +413,7 @@
 
         <div class="menu-card" data-item-id="creme-brulee">
           <div class="menu-card-body">
-            <span class="tier-badge tier-classic">🍽️ GTG Classic</span>
+            <div class="menu-badges"><span class="tier-badge tier-classic">🍽️ GTG Classic</span> <span class="badge badge-chefs-pick">⭐ Chef's Pick</span></div>
             <h4>Crème Brûlée</h4>
             <p>Classic French custard with caramelized sugar crust.</p>
             <div class="menu-card-footer">
@@ -423,7 +425,7 @@
 
         <div class="menu-card" data-item-id="choc-torte">
           <div class="menu-card-body">
-            <span class="tier-badge tier-ketovore">🥑 Ketovore</span>
+            <div class="menu-badges"><span class="tier-badge tier-ketovore">🥑 Ketovore</span> <span class="badge badge-3p">✅ 3P Approved</span></div>
             <h4>Flourless Chocolate Torte</h4>
             <p>Dense dark chocolate, no flour, no refined sugar. 4g net carbs.</p>
             <div class="menu-card-footer">
