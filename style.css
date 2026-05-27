@@ -55,7 +55,7 @@ p { margin-bottom: 1rem; color: var(--text-mid); }
 /* ── Nav ── */
 .nav { background: var(--emerald); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-md); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
-.nav-logo img { height: 52px; }
+.nav-logo img { height: 60px; width: 60px; object-fit: contain; border-radius: 50%; }
 .nav-links { display: flex; gap: 1.25rem; list-style: none; align-items: center; }
 .nav-links a { color: rgba(255,255,255,.85); font-size: .88rem; font-weight: 600; letter-spacing: .04em; transition: color var(--transition); }
 .nav-links a:hover { color: var(--gold); }
