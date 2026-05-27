@@ -207,6 +207,13 @@
       flex-wrap: wrap;
     }
 
+    .gtg-map-marker {
+      border-radius: 50%;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+
     @media (max-width: 520px) {
       .dz-input-row { flex-direction: column; }
       .dz-card { padding: 1.5rem 1.25rem; }
@@ -449,11 +456,12 @@ zoneLayer.bindPopup('<strong>✅ Delivery Zone</strong><br/>30A Corridor · Mira
 map.fitBounds(zoneLayer.getBounds(), { padding: [24, 24] });
 
 // Kitchen marker
-const kitchenIcon = L.divIcon({
-  html: '<div style="font-size:22px;line-height:1;">👨‍🍳</div>',
-  iconSize: [28, 28],
-  iconAnchor: [14, 14],
-  className: ''
+const kitchenIcon = L.icon({
+  iconUrl: 'images/gtg-logo-badge.jpg',
+  iconSize: [44, 44],
+  iconAnchor: [22, 22],
+  popupAnchor: [0, -24],
+  className: 'gtg-map-marker'
 });
 L.marker([30.375107567259544, -86.24515060774469], { icon: kitchenIcon })
   .addTo(map)
