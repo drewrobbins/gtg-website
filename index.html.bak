@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emerald Coast Gourmet To Go — Premium Metabolic Meals, 30A Florida</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="images/gtg-logo-badge.jpg" alt="Gourmet To Go" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="index.html#gift" style="color:var(--gold);font-weight:700;">🎁 Gift a Meal</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li>
+        <a href="order.html" class="nav-cart-btn" style="position:relative;">
+          🛒 <span class="cart-btn-text">Cart</span>
+          <span class="cart-badge">0</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">Now Serving 30A · Santa Rosa Beach · Destin</span>
+    <h1>Chef-Crafted Meals.<br/>Your Metabolic Goals, Delivered.</h1>
+    <p>The Florida Panhandle's only dedicated whole-food, carnivore, and low-carb culinary studio. Prepared fresh by Chef Gary Serafin — 40+ years of culinary mastery — and nutritionally curated by the team at 3 Pillar Health.</p>
+    <div class="hero-btns">
+      <a href="menu.html" class="btn btn-gold">Order Online Now</a>
+      <a href="subscribe.html" class="btn btn-outline">Weekly Subscription</a>
+      <a href="tel:8505855979" class="btn btn-white">Call (850) 585-5979</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">Zero</div>
+        <div class="stat-label">Seed Oils — Every Dish, Guaranteed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Years of Chef Gary's Culinary Mastery</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Whole, Real Ingredients — No Shortcuts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">48hr</div>
+        <div class="stat-label">Fresh Made to Order — Never Mass-Produced</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3P APPROVED TIERS -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">3P Approved Dietary Tiers</span>
+    <h2>Food That Matches How You Eat</h2>
+    <p>Every item on our menu is classified by Drew Robbins' metabolic health framework. Filter by your dietary approach and order with confidence.</p>
+    <div class="tier-cards">
+      <div class="tier-card carnivore">
+        <h4>🥩 Pure Carnivore</h4>
+        <p>Animal proteins only. Zero plant inputs. Maximum metabolic impact.</p>
+      </div>
+      <div class="tier-card carnivore-light">
+        <h4>🥩 Carnivore Light</h4>
+        <p>Mostly animal-based with minimal low-toxin plant additions.</p>
+      </div>
+      <div class="tier-card ketovore">
+        <h4>🥑 Ketovore</h4>
+        <p>High fat, ketogenic, animal-forward with select whole vegetables.</p>
+      </div>
+      <div class="tier-card lowcarb">
+        <h4>🌿 Low Carb</h4>
+        <p>Under 20g net carbs. No grains, no sugar, whole-food focused.</p>
+      </div>
+      <div class="tier-card classic">
+        <h4>🍽️ GTG Classic</h4>
+        <p>Chef Gary's original recipes — premium ingredients, no shortcuts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DR. DREW CALLOUT -->
+<div class="dr-drew">
+  <div class="container">
+    <div class="dr-drew-inner">
+      <div class="dr-drew-text">
+        <span class="dr-drew-badge">3 Pillar Health · Drew Robbins</span>
+        <h3>"I built the 3P Approved framework because my patients needed food that matched their metabolic protocols — not just 'healthy' marketing."</h3>
+        <p>Drew Robbins is a Metabolic Health Practitioner and founder of 3 Pillar Health. Every 3P Approved item on our menu meets his clinical standards for metabolic support, ingredient quality, and therapeutic value.</p>
+        <a href="menu.html" class="btn btn-gold">Shop 3P Approved Items</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VRBO / PRE-ARRIVAL BANNER -->
+<div class="vrbo-banner">
+  <div class="container">
+    <h2>Arriving on 30A? Dinner Can Be Waiting.</h2>
+    <p>Planning a vacation rental stay in Santa Rosa Beach, Seaside, or Rosemary Beach? Pre-order your first night's meal before you arrive. We deliver Mon–Fri 4–6pm.</p>
+    <a href="partners.html" class="btn btn-gold">Vacation Rental Meal Packs</a>
+  </div>
+</div>
+
+<!-- THIS WEEK'S MENU CAROUSEL -->
+<section class="section" id="this-week">
+  <div class="container">
+    <span class="section-label">From the Kitchen</span>
+    <h2>This Week's Menu</h2>
+    <p style="color:var(--text-light);max-width:560px;margin:0 auto 2.25rem;">Chef Gary cooks fresh every week. Order 48 hours ahead — pickup or delivery. Every dish feeds 2–3.</p>
+
+    <div class="carousel-wrap">
+      <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous" onclick="carouselMove(-1)">&#8249;</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
+      <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next" onclick="carouselMove(1)">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="menu.html" class="btn btn-gold">See Full Menu &amp; Pricing</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ================================================================
+// THIS WEEK'S MENU — UPDATE THIS EVERY WEEK
+// Swap items below to reflect what Chef Gary is making this week.
+// Badge classes: badge-bestseller | badge-chefs-pick | badge-3p | badge-new | badge-wan | badge-limited
+// ================================================================
+const WEEKLY_ITEMS = [
+  {
+    id: 'beef-strada',
+    name: 'Beef Strada',
+    desc: 'Premium ground beef, eggs, aged cheddar. Zero carb. Our carnivore flagship.',
+    price: 48,
+    tierLabel: '🥩 Pure Carnivore', tierClass: 'tier-carnivore',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }, { text: '✅ 3P Approved', cls: 'badge-3p' }],
+    img: 'images/Beef-Strada.jpg'
+  },
+  {
+    id: 'lamb-strada',
+    name: 'Lamb Strada',
+    desc: 'Pasture-raised lamb, rosemary, eggs, manchego. Rich, deeply satisfying.',
+    price: 52,
+    tierLabel: '🥩 Pure Carnivore', tierClass: 'tier-carnivore',
+    badges: [{ text: '⭐ Chef's Pick', cls: 'badge-chefs-pick' }, { text: '✅ 3P Approved', cls: 'badge-3p' }],
+    img: 'images/Lamb-Strada.jpg'
+  },
+  {
+    id: 'shrimp-etouffee',
+    name: 'Shrimp Étouffée',
+    desc: 'Gulf shrimp in rich Cajun roux, served over cauliflower rice upon request.',
+    price: 34,
+    tierLabel: '🌿 Low Carb', tierClass: 'tier-lowcarb',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }],
+    img: 'images/Shrimp-Etouffee-copy-300x200.png'
+  },
+  {
+    id: 'chicken-gumbo',
+    name: 'Chicken & Sausage Gumbo',
+    desc: 'Deep dark roux, andouille sausage, Gulf seasoning. A Florida Panhandle classic.',
+    price: 18,
+    tierLabel: '🌿 Low Carb', tierClass: 'tier-lowcarb',
+    badges: [{ text: '⭐ Chef's Pick', cls: 'badge-chefs-pick' }, { text: '🏆 Bestseller', cls: 'badge-bestseller' }],
+    img: 'images/Chicken-and-Andouille-Sausage-Gumbo-rich-dark-roux-with-Creole-seasoning-add-rice-1-300x300.jpeg'
+  },
+  {
+    id: 'meatloaf',
+    name: 'Market Street Meatloaf',
+    desc: 'Classic all-beef meatloaf, minimal binders, rosemary whipped potatoes.',
+    price: 30,
+    tierLabel: '🥩 Carnivore Light', tierClass: 'tier-carnivore-light',
+    badges: [],
+    img: 'images/Market-Street-Meatloaf-w-Rosemary-Whipped-Potatoes-2-300x300.jpeg'
+  },
+  {
+    id: 'bread-pudding',
+    name: 'New Orleans Bread Pudding',
+    desc: "Brioche, bourbon vanilla sauce, toasted pecans. Chef Gary's most-requested dessert.",
+    price: 13,
+    tierLabel: '🍽️ GTG Classic', tierClass: 'tier-classic',
+    badges: [{ text: '🏆 Bestseller', cls: 'badge-bestseller' }, { text: '⭐ Chef's Pick', cls: 'badge-chefs-pick' }],
+    img: 'images/Bread-pudding-300x300.jpg'
+  }
+];
+
+// — Carousel engine (no edits needed below) —
+let carouselPos = 0;
+
+function getVisible() {
+  return window.innerWidth > 900 ? 3 : window.innerWidth > 600 ? 2 : 1;
+}
+
+function carouselInit() {
+  const track = document.getElementById('carouselTrack');
+  const dots  = document.getElementById('carouselDots');
+  if (!track) return;
+  track.innerHTML = WEEKLY_ITEMS.map((item) => {
+    const badgeHTML = [
+      `<span class="tier-badge ${item.tierClass}">${item.tierLabel}</span>`,
+      ...item.badges.map(b => `<span class="badge ${b.cls}">${b.text}</span>`)
+    ].join(' ');
+    const imgHTML = item.img
+      ? `<img class="carousel-slide-img" src="${item.img}" alt="${item.name}" onerror="this.style.display='none'" loading="lazy" />`
+      : `<div class="carousel-slide-img-placeholder">🍽️</div>`;
+    return `<div class="carousel-slide" data-item-id="${item.id}">
+      ${imgHTML}
+      <div class="carousel-slide-body">
+        <div class="menu-badges">${badgeHTML}</div>
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <div class="carousel-slide-footer">
+          <span class="carousel-slide-price">$${item.price}</span>
+          <button class="add-to-cart-btn" onclick="addToCart('${item.id}','${item.name}',${item.price},'${item.tierLabel}','${item.img}')">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  dots.innerHTML = WEEKLY_ITEMS.map((_, i) =>
+    `<button class="carousel-dot${i===0?' active':''}" onclick="carouselTo(${i})" aria-label="Slide ${i+1}"></button>`
+  ).join('');
+  carouselUpdate();
+}
+
+function carouselUpdate() {
+  const track   = document.getElementById('carouselTrack');
+  const dotsEl  = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  if (!track || !track.children.length) return;
+  const vis    = getVisible();
+  const max    = Math.max(0, WEEKLY_ITEMS.length - vis);
+  carouselPos  = Math.min(Math.max(carouselPos, 0), max);
+  const gap    = 20;
+  const slideW = track.children[0].offsetWidth + gap;
+  track.style.transform = `translateX(-${carouselPos * slideW}px)`;
+  dotsEl.forEach((d, i) => d.classList.toggle('active', i === carouselPos));
+  if (prevBtn) prevBtn.disabled = carouselPos === 0;
+  if (nextBtn) nextBtn.disabled = carouselPos >= max;
+}
+
+function carouselMove(dir) { carouselPos += dir; carouselUpdate(); }
+function carouselTo(i)     { carouselPos = i;   carouselUpdate(); }
+
+document.addEventListener('DOMContentLoaded', carouselInit);
+window.addEventListener('resize', () => { carouselPos = 0; carouselUpdate(); });
+
+// Touch/swipe
+(function() {
+  let startX = 0;
+  document.addEventListener('DOMContentLoaded', () => {
+    const vp = document.querySelector('.carousel-viewport');
+    if (!vp) return;
+    vp.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) carouselMove(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  });
+})();
+</script>
+
+<!-- HOW IT WORKS -->
+<section class="section section--alt">
+  <div class="container">
+    <span class="section-label">How It Works</span>
+    <h2>Four Ways to Eat Well on 30A</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2.5rem;">
+
+      <!-- TRACK 1: SUBSCRIBER -->
+      <div style="background:#fff;border-radius:16px;padding:2rem;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+        <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;">📅 Weekly Subscriber</div>
+        <p style="color:#666;font-size:.95rem;margin-bottom:2rem;">Set it and forget it. Meals handled every week.</p>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:var(--gold);color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">1</div>
+            <div><strong>Lock In by Sunday 8pm</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Choose your plan and confirm your weekly meals before Sunday night cutoff.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:var(--gold);color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">2</div>
+            <div><strong>Chef Gary Cooks Monday</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Every dish prepared fresh in our licensed kitchen — never reheated, never frozen.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:var(--gold);color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">3</div>
+            <div><strong>Delivered Tuesday</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Your meals arrive at your door Mon–Fri 4–6pm. Free delivery on all subscriptions.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="subscribe.html" class="btn btn-gold" style="width:100%;text-align:center;">See Subscription Plans</a>
+        </div>
+      </div>
+
+      <!-- TRACK 2: VACATIONER -->
+      <div style="background:#fff;border-radius:16px;padding:2rem;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+        <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;">🏖️ Vacation Rental Guest</div>
+        <p style="color:#666;font-size:.95rem;margin-bottom:2rem;">Arrive to a stocked kitchen. No grocery runs. No stress.</p>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#2d6a4f;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">1</div>
+            <div><strong>Order Before You Arrive</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Browse the menu and place your order before you leave home. 48-hour lead time.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#2d6a4f;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">2</div>
+            <div><strong>We Stock Your Rental</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">We deliver directly to your vacation property and coordinate with your host or property manager.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#2d6a4f;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">3</div>
+            <div><strong>Open the Fridge &amp; Eat</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Walk in, heat, and enjoy. Chef-quality meals from your first night on 30A.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="partners.html" class="btn btn-gold" style="width:100%;text-align:center;background:#2d6a4f;border-color:#2d6a4f;">Vacation Meal Packs</a>
+        </div>
+      </div>
+
+      <!-- TRACK 3: WAN — WHAT'S AVAILABLE NOW -->
+      <div style="background:#fff;border-radius:16px;padding:2rem;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+        <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;">🧊 WAN — What's Available Now</div>
+        <p style="color:#666;font-size:.95rem;margin-bottom:.5rem;">Fresh from the kitchen, in the cooler for 24–48 hours. After that it's frozen — catch it while it's fresh.</p>
+        <div style="display:inline-block;background:#fef3c7;color:#92400e;font-size:.8rem;font-weight:600;padding:.2rem .65rem;border-radius:99px;margin-bottom:1.5rem;">🕐 Limited window — fresh today, frozen tomorrow</div>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#b45309;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">1</div>
+            <div><strong>Chef Gary Cooks</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Every batch goes straight from the kitchen into refrigerated coolers — fresh, never frozen at this stage.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#b45309;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">2</div>
+            <div><strong>Check the Cooler</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">WAN inventory is what's in the cooler right now. See what's available on our menu page or call us.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#b45309;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">3</div>
+            <div><strong>Stop In &amp; Pick Up</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Walk in, grab it, take it home. No order, no wait. Anything left after 48 hours moves to frozen inventory.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="menu.html" class="btn btn-gold" style="width:100%;text-align:center;background:#b45309;border-color:#b45309;">See What's in the Cooler</a>
+        </div>
+      </div>
+
+      <!-- TRACK 4: ONLINE ORDER 48H -->
+      <div style="background:#fff;border-radius:16px;padding:2rem;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+        <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;">💻 Order Online — 48 Hours Ahead</div>
+        <p style="color:#666;font-size:.95rem;margin-bottom:2rem;">Locals and guests: order on your schedule and get it delivered to your door.</p>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#1a3a5c;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">1</div>
+            <div><strong>Create an Account</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Sign up on our site — takes 60 seconds. Locals and vacation guests both welcome.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#1a3a5c;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">2</div>
+            <div><strong>Choose Your Meals</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Browse the full menu and place your order at least 48 hours before you want delivery.</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div style="background:#1a3a5c;color:#fff;font-weight:700;border-radius:50%;width:2rem;height:2rem;min-width:2rem;display:flex;align-items:center;justify-content:center;">3</div>
+            <div><strong>We Deliver</strong><p style="margin:.25rem 0 0;color:#555;font-size:.9rem;">Chef Gary cooks fresh and we bring it to you. Mon–Fri 4–6pm delivery window.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="order.html" class="btn btn-gold" style="width:100%;text-align:center;background:#1a3a5c;border-color:#1a3a5c;">Order Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GIFT CALLOUT -->
+<section class="section gift-section" id="gift">
+  <div class="container">
+    <div class="gift-inner">
+
+      <div class="gift-copy">
+        <span class="section-label">The Perfect 30A Gift</span>
+        <h2>Send Chef Gary's Food as a Gift</h2>
+        <p>Know someone renting a beach house on 30A? Order ahead and we'll stock their fridge before they arrive. They open the door to a chef-cooked dinner waiting for them — no grocery runs, no restaurant wait, no cooking on vacation.</p>
+        <p style="color:var(--text-light);font-size:.95rem;">Perfect for: friends &amp; family staying in vacation rentals · wedding party houses · birthday trips · anniversary getaways</p>
+        <div class="gift-ctas">
+          <a href="order.html?gift=1" class="btn btn-gold">Send a Food Gift</a>
+          <a href="partners.html" class="btn btn-outline">Vacation Rental Partners</a>
+        </div>
+      </div>
+
+      <div class="gift-steps">
+        <div class="gift-step">
+          <div class="gift-step-icon">🏠</div>
+          <div>
+            <strong>They Book the Rental</strong>
+            <p>Your people lock in their 30A house — you handle the welcome dinner.</p>
+          </div>
+        </div>
+        <div class="gift-step-connector"></div>
+        <div class="gift-step">
+          <div class="gift-step-icon">📱</div>
+          <div>
+            <strong>You Order Online</strong>
+            <p>Pick from the full menu. Add a gift note. We need 48 hours lead time before their arrival date.</p>
+          </div>
+        </div>
+        <div class="gift-step-connector"></div>
+        <div class="gift-step">
+          <div class="gift-step-icon">🍽️</div>
+          <div>
+            <strong>They Arrive to Dinner</strong>
+            <p>Chef Gary's meals are in the fridge, ready to heat. First night on 30A sorted.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION TEASER -->
+<section class="section section--dark">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">The Weekly Table</span>
+    <h2>Never Think About Dinner Again</h2>
+    <p style="max-width:580px;margin:0 auto 2rem;">Lock in your weekly meals by Sunday 8pm. We cook, you eat. Starting at $85/week with free delivery on all subscriptions.</p>
+    <a href="subscribe.html" class="btn btn-gold">See Subscription Plans</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Emerald Coast Gourmet To Go</h4>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);">Premium metabolic meals crafted by Chef Gary Serafin. Serving Santa Rosa Beach and the 30A corridor.</p>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);margin-top:.5rem;">3906 US-98 Suite 40<br/>Santa Rosa Beach, FL 32459<br/>(850) 585-5979</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html#stratas">3P Stratas</a></li>
+          <li><a href="menu.html#entrees">Entrées</a></li>
+          <li><a href="menu.html#soups">Soups & Gumbos</a></li>
+          <li><a href="menu.html#sides">Sides</a></li>
+          <li><a href="menu.html#desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="subscribe.html">Weekly Subscription</a></li>
+          <li><a href="partners.html">Vacation Rental Partners</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Hours & Delivery</a></li>
+          <li><a href="feedback.html">Share Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Emerald Coast Gourmet To Go · A 3 Pillar Health Partner · ecc.gtg@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Cart -->
+<div class="floating-cart" id="floatingCart">
+  <button class="floating-cart-btn" onclick="window.location.href='order.html'">
+    🛒 <span id="fc-items">0 items</span> · <span id="fc-total" style="color:var(--gold);">$0</span>
+  </button>
+</div>
+
+<script src="cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', updateFloatingCart);
+  document.addEventListener('cartUpdated', updateFloatingCart);
+  function updateFloatingCart() {
+    const count = getItemCount();
+    const sub = getSubtotal();
+    const fc = document.getElementById('floatingCart');
+    document.getElementById('fc-items').textContent = count + (count === 1 ? ' item' : ' items');
+    document.getElementById('fc-total').textContent = '$' + sub.toFixed(2);
+    fc.classList.toggle('visible', count > 0);
+  }
+</script>
+</body>
+</html>
